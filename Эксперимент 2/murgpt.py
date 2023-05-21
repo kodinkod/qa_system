@@ -5,7 +5,7 @@ from openai.embeddings_utils import distances_from_embeddings
 import openai
 import warnings
 
-openai.api_key = "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"
+openai.api_key = ""
 get_counts_token = lambda encoding, str: len(encoding.encode(str)) # коллисество токенов в тексте
 
 
