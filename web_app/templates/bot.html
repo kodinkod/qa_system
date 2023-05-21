@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+{% block botform %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Бот</h3>
+    </div>
+    <div class="panel-body">
+
+      <form class="form-horizontal" action="/chat/" method="post">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <input type="text" name = "question" class="form-control" placeholder="Как сделать..">
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <button name="runchat" type="submit" type="button" class="btn btn-success ">спросить</button>
+        </div>
+      </div>
+      </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block allanswers %}
+
+
+<h3> {{questions}} <span class="label label-info">{{model_name}}</span></h3>
+<p style="padding-left: 25px; padding-right: 25px; padding-top: 40px; padding-bottom: 20px; font-size: larger;" class="bg-success">
+  {{answer_content}}
+</p>
+
+<p style="padding-left: 25px; padding-right: 25px; padding-top: 40px; padding-bottom: 20px; font-size: larger;" class="bg-warning">
+  {%for i in range(0, len_context)%}
+
+  {% if distance[i] > 70 %}
+  <b>{{context[i]}}</b>, <b style="color: green;">{{distance[i]}}%</b><br>
+  {% else %}
+  
+
+  {% endif %}
+
+{%endfor%}
+</p>
+{% endblock %}
